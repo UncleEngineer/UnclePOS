@@ -45,10 +45,26 @@ def search_single(barcode):
             result.append(1) #เพิ่มจำนวน 1 รายการเข้าไป
     return result
 
+def delete_product(ID):
+    with conn:
+        command = 'DELETE FROM product WHERE ID=(?)'
+        c.execute(command,([ID]))
+    conn.commit()
 
-s = search_single('1002')
-print(s)
+def update_product(ID,field,data):
+    with conn:
+        command = 'UPDATE product SET {} = (?) WHERE ID = (?)'.format(field)
+        c.execute(command,([data,ID]))
+    conn.commit()
 
-# insert_product('1001','พ่อรวยสอนลูก',150,3)
-# view_product()
+
+# s = search_single('1002')
+# print(s)
+
+#insert_product('1001','พ่อรวยสอนลูก',150,3)
+#delete_product(8)
+# update_product(1,'barcode','1002')
+# update_product(1,'price',200)
+#view_product()
+
 # table_add_product()

@@ -6,6 +6,8 @@ class Addproduct:
 
     def __init__(self):
         self.info = 'เพิ่มสินค้า'
+        self.currentid = 0
+        self.state = 'save'  # save, update
 
     def popup(self):
         PGUI = Toplevel()
@@ -48,8 +50,19 @@ class Addproduct:
             price = v_price.get()
             quantity = v_quantity.get()
 
-            insert_product(barcode,title,float(price),float(quantity))
-            messagebox.showinfo('Done!','บันทึกสำเร็จแล้ว')
+            if self.state == 'save':
+                insert_product(barcode,title,float(price),float(quantity))
+                #messagebox.showinfo('Done!','บันทึกสำเร็จแล้ว')
+            else:
+                update_product(self.currentid,'barcode',v_barcode.get())
+                update_product(self.currentid,'title',v_title.get())
+                update_product(self.currentid,'price',float(v_price.get()))
+                update_product(self.currentid,'quantity',float(v_quantity.get()))
+                # after update
+                self.state = 'save'
+                B_save.configure(text='save')
+                B_reset.pack_forget()
+            
             PGUI.focus_force() #กลับไปเลือกหน้าเดิม
             v_barcode.set('')
             v_title.set('')
@@ -88,6 +101,55 @@ class Addproduct:
             for d in  data:
                 table.insert('','end',values=d)
 
-        update_table()
 
+        def delete(event):
+            #PGUI.attributes('-topmost',True)
+            # self.gui.lower(PGUI)
+            
+            check = messagebox.askyesno('ลบสินค้า','คุณต้องการลบสินค้าชิ้นนี้ใช่หรือไม่?')
+            if check == True:
+                print('CHECK:',check)
+                select = table.selection()
+                data = table.item(select)['values']
+                print(data)
+                delete_product(data[0])
+                update_table()
+            
+            PGUI.focus_force()
+            
+        table.bind('<Delete>',delete)
+
+        def clickupdate(event):
+            select = table.selection() 
+            data = table.item(select)['values'] # [1, 1002, 'พ่อรวยสอนลูก', '200.0', '3.0']
+            print(data)
+            self.currentid = data[0]
+            v_barcode.set(data[1])
+            v_title.set(data[2])
+            v_price.set(data[3])
+            v_quantity.set(data[4])
+            self.state = 'update'
+            B_save.configure(text='update')
+            B_reset.pack()
+
+        
+        def reset():
+            v_barcode.set('')
+            v_title.set('')
+            v_price.set('10')
+            v_quantity.set('1')
+            self.state = 'save'
+            B_save.configure(text='save')
+            B_reset.pack_forget()
+            
+        B_reset = ttk.Button(F1,text='reset',command=reset)
+        B_reset.pack()
+        B_reset.pack_forget()
+
+
+        table.bind('<Double-1>',clickupdate)
+
+        update_table()
+        #PGUI.attributes('-topmost',True)
+        #PGUI.overrideredirect(True) # clear  title bar
         PGUI.mainloop()
