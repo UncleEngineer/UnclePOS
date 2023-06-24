@@ -57,6 +57,24 @@ def update_product(ID,field,data):
         c.execute(command,([data,ID]))
     conn.commit()
 
+###########
+def home_products_button():
+    with conn:
+        command = 'SELECT * FROM product'
+        c.execute(command)
+        result = c.fetchall()
+        # print(result)
+        home_products = {}
+        for r in result:
+            # r = (1, '1002', 'พ่อรวยสอนลูก', 200.0, 5.0, None)
+            home_products[r[1]] = r[2]
+    return home_products
+
+
+####### สร้างฟังชั่นสำหรับบันทึกค่าปุ่ม fav #######
+
+
+# print(home_products_button())
 
 # s = search_single('1002')
 # print(s)

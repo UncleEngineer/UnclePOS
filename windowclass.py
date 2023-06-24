@@ -4,6 +4,9 @@ from posdb import *
 
 class Addproduct:
 
+
+
+
     def __init__(self):
         self.info = 'เพิ่มสินค้า'
         self.currentid = 0
@@ -153,3 +156,30 @@ class Addproduct:
         #PGUI.attributes('-topmost',True)
         #PGUI.overrideredirect(True) # clear  title bar
         PGUI.mainloop()
+
+
+
+class ButtonHomepage(Frame):
+    def __init__(self,container,products={1:'ปากกา',2:'ยางลบ'},rows=3,variables={}):
+        super().__init__(container) # Frame(GUI)
+        self.products = products
+        self.variables = variables
+        # row,column settings
+        self.row=0
+        self.column=0
+        self.column_number=rows
+        # main frame
+        self.frame = Frame(self)
+        self.frame.pack()
+        self.create_button()
+        #self.pack()
+
+    def create_button(self):
+        for k,pd in self.products.items():
+            if self.column == self.column_number:
+                self.column = 0
+                self.row += 1
+            search = self.variables['search']
+            B = ttk.Button(self.frame, text=pd,command=lambda x=k:search(x))
+            B.grid(row=self.row, column=self.column,ipadx=20,ipady=10)
+            self.column += 1
