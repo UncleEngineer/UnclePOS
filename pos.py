@@ -157,6 +157,101 @@ def reset(event=None):
 BReset = ttk.Button(FReset,text='Reset',command=reset)
 BReset.pack(ipadx=20,ipady=10)
 
+#################CHECK OUT###################
+
+FCheckout = Frame(GUI)
+FCheckout.place(x=1200,y=880)
+
+def checkout(event=None):
+    GUI2 = Toplevel() #
+    GUI2.title('หน้าสรุปยอดเงิน')
+
+    W = 1000
+    H = 700
+    MW = GUI.winfo_screenwidth()
+    MH = GUI.winfo_screenheight()
+    # print(MW,MH) # current screen width,height
+    SX = (MW/2) - (W/2)
+    SY = (MH/2) - (H/2)
+    GUI2.geometry('{}x{}+{:.0f}+{:.0f}'.format(W,H,SX,SY))
+
+
+    t = total
+
+    v1 = StringVar()
+    v1.set('รวมยอดทั้งหมด: {:,.2f} บาท'.format(t))
+    v2 = StringVar()
+    v3 = StringVar()
+    v3.set('ทอน: - บาท')
+
+    T1 = ttk.Label(GUI2,textvariable=v1,font=(None,30))
+    T1.place(x=50,y=50)
+
+    T2 = ttk.Label(GUI2,text='รับเงิน:',font=(None,30))
+    T2.place(x=50,y=150)
+    ET2 = ttk.Entry(GUI2,textvariable=v2,font=(None,30),width=5)
+    ET2.place(x=200,y=150)
+
+    def calculate(sv):
+        cal = float(v2.get()) - total
+        # print('CHECK',v2.get())
+        v3.set('ทอน: {:,.2f} บาท'.format(cal))
+
+    v2.trace("w", lambda name, index, mode, sv=v2: calculate(sv))
+    T3 = ttk.Label(GUI2,textvariable=v3,font=(None,30))
+    T3.place(x=50,y=250)
+
+    FB = Frame(GUI2)
+    FB.place(x=300,y=550)
+
+    BS = ttk.Button(FB,text='บันทึก')
+    BS.pack(ipadx=20,ipady=10)
+
+    FBanknote = Frame(GUI2)
+    FBanknote.place(x=30,y=340)
+
+    global money_get
+    money_get = 0
+    def add(v):
+        global money_get
+        money_get += v
+        v2.set(money_get)
+
+    img1 = PhotoImage(file='b20.png')
+    img2 = PhotoImage(file='b50.png')
+    img3 = PhotoImage(file='b100.png')
+    img4 = PhotoImage(file='b500.png')
+    img5 = PhotoImage(file='b1000.png')
+    B20 = ttk.Button(FBanknote,image=img1,command=lambda x=20: add(x)).grid(row=0,column=0,ipady=15,)
+    B50 = ttk.Button(FBanknote,image=img2,command=lambda x=50: add(x)).grid(row=0,column=1,ipady=15)
+    B100 = ttk.Button(FBanknote,image=img3,command=lambda x=100: add(x)).grid(row=0,column=2,ipady=15)
+    B500 = ttk.Button(FBanknote,image=img4,command=lambda x=500: add(x)).grid(row=0,column=3,ipady=15)
+    B1000 = ttk.Button(FBanknote,image=img5,command=lambda x=1000: add(x)).grid(row=0,column=4,ipady=15)
+
+
+
+    GUI2.mainloop()
+
+BCheckout = ttk.Button(FCheckout,text='Checkout',command=checkout)
+BCheckout.pack(ipadx=20,ipady=10)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 GUI.bind('<F12>',reset)
