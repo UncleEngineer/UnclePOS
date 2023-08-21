@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from windowclass import Addproduct, ButtonHomepage
 from posdb import *
+from bill import Bill
 
 GUI = Tk()
 GUI.title('โปรแกรม POS')
@@ -204,7 +205,14 @@ def checkout(event=None):
     FB = Frame(GUI2)
     FB.place(x=300,y=550)
 
-    BS = ttk.Button(FB,text='บันทึก')
+    def Save():
+        reportlist = []
+        for p in table_product.values():
+            d = [p[-1],p[-3],p[-2]]
+            reportlist.append(d)
+        Bill(reportlist)
+
+    BS = ttk.Button(FB,text='บันทึก',command=Save)
     BS.pack(ipadx=20,ipady=10)
 
     FBanknote = Frame(GUI2)
