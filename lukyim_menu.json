@@ -1,0 +1,182 @@
+[
+  {
+    "name": "ชา",
+    "price": 15,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาดำ",
+    "price": 15,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาเขียว",
+    "price": 15,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "โอวัลติน",
+    "price": 15,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "กาแฟ",
+    "price": 15,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชานม",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาดำ",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาเขียว",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "โอวัลติน",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "โกโก้",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "นมสด",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "นมชมพู",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "กาแฟ",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "แดงโซดา",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "เขียวโซดา",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "สตรอเบอร์รี่โซดา",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "บลูฮาวาย",
+    "price": 25,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาเขียวแช่ะ",
+    "price": 30,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาลำไย",
+    "price": 30,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ชาเขียวลำไย",
+    "price": 30,
+    "category_id": "BEVERAGES"
+  },
+  {
+    "name": "ปังปิ้งเนย นม",
+    "price": 15,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งเนย นม น้ำตาล",
+    "price": 15,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งโอวัลติน นม",
+    "price": 20,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งแยมสตรอเบอร์รี่",
+    "price": 20,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งแยมบลูเบอร์รี่",
+    "price": 20,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งบูเกลล่า",
+    "price": 20,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งบูเกลล่า กล้วย",
+    "price": 25,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ปังปิ้งบูเกลล่า โอริโอ้",
+    "price": 25,
+    "category_id": "BREAD"
+  },
+  {
+    "name": "ไส้กรอกแดง",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "กร็อปโป้",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "เฟรนช์ฟรายส์",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "เฟรนช์ฟรายส์เขียว",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "นักเก็ตไก่",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "ไก่ป๊อป",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "ไก่ป๊อปชีสซี่",
+    "price": 30,
+    "category_id": "FRIED"
+  },
+  {
+    "name": "เอ็นไก่",
+    "price": 40,
+    "category_id": "FRIED"
+  }
+]
